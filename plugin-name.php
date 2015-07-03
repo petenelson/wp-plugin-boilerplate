@@ -6,18 +6,22 @@ Author: Pete Nelson
 Version: 1.0.0
 */
 
+$plugin_class_file = 'plugin-name';
+
 $includes = array(
-	'includes/class-plugin-name-common.php',
-	'includes/class-plugin-name-i18n.php',
-	'includes/class-plugin-name.php',
-	'admin/class-plugin-name-admin.php',
+	'includes/class-' . $plugin_class_file . '-common.php',
+	'includes/class-' . $plugin_class_file . '-i18n.php',
+	'includes/class-' . $plugin_class_file . '.php',
+	'admin/class-' . $plugin_class_file . '-admin.php',
 );
 
+$class_base = 'My_Plugin_Name';
+
 $classes = array(
-	'My_Plugin_Name_Common',
-	'My_Plugin_Name_i18n',
-	'My_Plugin_Name',
-	'My_Plugin_Name_Admin',
+	$class_base . '_Common',
+	$class_base . '_i18n',
+	$class_base . '',
+	$class_base . '_Admin',
 );
 
 
@@ -34,8 +38,6 @@ foreach ( $includes as $include ) {
 
 // instantiate classes and hook into WordPress
 foreach ( $classes as $class ) {
-	if ( class_exists( $class ) ) {
-		$plugin = new $class();
-		add_action( 'plugins_loaded', array( $plugin, 'plugins_loaded' ) );
-	}
+	$plugin = new $class();
+	add_action( 'plugins_loaded', array( $plugin, 'plugins_loaded' ) );
 }

@@ -6,6 +6,7 @@ if ( ! class_exists( 'My_Plugin_Name_i18n' ) ) {
 
 	class My_Plugin_Name_i18n {
 
+
 		public function plugins_loaded() {
 
 			load_plugin_textdomain(
@@ -16,6 +17,7 @@ if ( ! class_exists( 'My_Plugin_Name_i18n' ) ) {
 
 		}
 
-	}
+
+	} // end class
 
 }
