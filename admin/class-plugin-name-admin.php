@@ -13,7 +13,7 @@ if ( ! class_exists( 'My_Plugin_Name_Admin' ) ) {
 
 
 		public function admin_init() {
-			echo 'admin_init';
+
 		}
 
 
